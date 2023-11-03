@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage ("code"){
             steps {
-                git url: 'https://github.com/Chaitannyaa/my-web-app.git', branch: 'main'
+                git url: 'https://github.com/anirudhadak2/my-web-app.git', branch: 'main'
             }
         }
         stage ("Build"){
