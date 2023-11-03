@@ -3,7 +3,7 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 
-st.set_page_config(page_title="Chaitannyaa", page_icon=":tada:", layout="wide")
+st.set_page_config(page_title="Anirudha", page_icon=":tada:", layout="wide")
 
 def load_lottieurl(url):
     r =requests.get(url)
@@ -26,10 +26,10 @@ image_logo=Image.open("images/logo.jpg")
 with st.container():
     left_column, right_column = st.columns((1.5,1.5))
     with  left_column:
-        st.subheader("Hi, I am Chaitannyaa :wave:")
+        st.subheader("Hi, I am Anirudha ! :wave:")
         st.title("A DevOps Enthusiast :heart:")
         st.write("I am passionate about learning new technologies and implement them to create some value")
-        st.write("[Learn More >](https://www.linkedin.com/in/chaitannyaa-gaikwad-b16965115)")
+        st.write("[Learn More >](https://www.linkedin.com/in/anirudha-d-0b0410220)")
         st.image(image_logo)    
     with right_column:
         st_lottie(lottie_coding1, height=450, key="coding")
@@ -44,49 +44,62 @@ with st.container():
             Cloud - Amazon Web Services:\n
             - Compute and Networking
             - Identity and access management (IAM)
-            - AWS CloudWatch
-            - Amazon S3 & SNS
+            - AWS EC2 
+            - Amazon S3 
+            - Amazon RDS (Relational Database Service)
+            - Amazon VPC (Virtual Private Network)
+            - Amazon ECS  (Elastic Container Service)
+            - EC2  - (Application Load Balancer) , (Classic Load Balancer) , (Network Load Balancer) 
+            - EC2 Auto Scaling 
             '''
             )
         st.write("##")
         st.write(
             '''
-            Ubuntu 20.04 (Basic 50 commands):
-            - User account creation, account maintenance and setting password.
-            - Configuring Logical Volume Management (LVM) Storage.
-            - Installation and configuration of DNS, APACHE etc on Red Hat.
+            RHCSA (RedHat Certified System Administrator)  :
+            - User Group Management , ACL  
+            - String Management , Network Management.
+            - Configuring Logical Volume Management (LVM) Storage , Package Management.
+            - Firewall , SSH ,SCP , SELinux , Tar, Crontab , NFS , User Privileges.
+            - Apache server , nginx server , PHP server , httpd server 
+            
+        
             '''
             )
         st.write("##")
         st.write(
             '''
-            Containerization (Docker & Kubernetes)
+            Containerization (Docker & Podman & Buildah )
             - Creating docker containers using images from docker hub.
             - Customizing the Docker images by writing Dockerfile according to the needs.
             - Tagging images and changing start-up commands of containers.
-            - Creating objects like Pod, Replica Set, Service, Deployment.
-            - Creating Kubernetes objects using YAML definition files.
-            - Launched a simple web app on a single node Kubernetes cluster.
-            - Deploying applications into Kubernetes as Deployments, Pods based on the need.
+            - Attaching Volume to container 
+            - Creating network in Docker , Running container in custom network.
+            - Creating tarball from  image.
+            - Creating local registry and push docker image to registry.
+            - Multitier application in pod.
             - Working on Docker hub, creating Docker images and handling multiple images.
             '''
             )
         st.write("##")
         st.write(
             '''
-            Python: Modules, Pip, Variables, Datatypes, Strings, Lists, Tuples, Dictionary, Sets, Conditional Expressions, 
-            Loops, Functions, Recursions, File I/O, Object oriented programming (Oops), Inheritance, Exception 
-            Handling, Virtual Environments
+            Application Deployment (Kubernetes / Openshift)
+                          
+            - Multi-tier Application Deployment.
+            - Container -> pod -> deployment -> replicas 
+            - Service - ClusterIP , NodePort , Load-Balancer
+            - Volumes - PV , PVC , Configmaps , Secret
+            - RBAC , HPA , Probes , Rollout , Security Context.
+            - Kubernetes Dashboard.
+            - 2-Tier application deployment ,
+            - S2I (Source to image ) , Service , Route , Secret Configmap , Template.
             
-            Python Project:
-            - This Webpage itself :tada:
-            - Library book issue - return system
-            - Rock- paper and scissor game
-            - Perfect guess game
-            - Tic-Tac-Toe game
             '''
             )
-        st.write("[Learn More >](https://github.com/Chaitannyaa/Fun_Project_with.py.git)")
+        
+            
+    #    st.write("[Learn More >](https://github.com/Chaitannyaa/Fun_Project_with.py.git)")
         
     with right_column:
         st_lottie(lottie_coding2, height=400)
@@ -123,7 +136,7 @@ with st.container():
     st.write("##")
     
     contact_form = """
-    <form action="https://formsubmit.co/chaitannyaagaikwad@gmail.com" method="POST">
+    <form action="https://formsubmit.co/anirudhadak2@gmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Your email" required>
