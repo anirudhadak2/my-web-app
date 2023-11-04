@@ -99,7 +99,7 @@ with st.container():
             )
         
             
-    #    st.write("[Learn More >](https://github.com/Chaitannyaa/Fun_Project_with.py.git)")
+  
         
     with right_column:
         st_lottie(lottie_coding2, height=400)
@@ -107,28 +107,8 @@ with st.container():
         st_lottie(lottie_coding4, height=350)
 with st.container():
     st.write('---')
-    st.header("Academic Project")
-    st.write("##")
-    Image_column, middle_column, text_column = st.columns((1,1.025,2))
-    with Image_column:
-        st.image(image_3d)
-    with middle_column:
-        st.image(image_2d)
-    with text_column:
-        st.subheader("Liquid Cooling System for CPU Processor")
-        st.write(
-            '''
-            Design and implementation of Thermosyphon based liquid cooling system for CPU processor to improve 
-            its performance.
-            
-            It is a passive cooling system based on Thermosyphon principle for dissipating heat
-            produced by a CPU processor. Acetone is used as a circulating coolant in the two-phase closed loop liquid 
-            cooling system fixed on the processor of desktop computer. This proposed system gives extended
-            standalone period of 4 minutes, 28 seconds and therefore helpful in critical system failure, which also 
-            provides flexibility to raise the clock speed of the existing processors.
-            '''
-            )
-        st.markdown("[Actual Photos..](https://drive.google.com/drive/folders/1MescWd78RyDYAZqnsjVBv5N-vYu9mS-0?usp=sharing)")
+    
+
 
 with st.container():
     st.write("---")
