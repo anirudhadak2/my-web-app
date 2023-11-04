@@ -1,32 +1,34 @@
 pipeline {
-    agent any
-    environment {
-        DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
-    }
-    stages {
-        stage ("code"){
-            steps {
-                git url: 'https://github.com/anirudhadak2/my-web-app.git', branch: 'main'
+    agent  any
+        stages{
+        stage("Git Clone"){
+            steps{
+                git url: "https://github.com/anirudhadak2/my-web-app.git", branch: "main"
             }
         }
-        stage ("Build"){
-            steps {
-                sh 'docker build -t chaitannyaa/my-webapp:v-${DOCKER_IMAGE_TAG} .'
+        stage("Create Docker Image"){
+            steps{
+		echo "Build and Test"
+		withCredentials([usernamePassword(credentialsId:"dockerhub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+		sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker build -t webapp ."
+		}
             }
         }
-        stage ("login and push image"){
-            steps {
-                echo 'Logging into docker and pushing an image on dockerhub'
-                withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'password', usernameVariable: 'user')]) {
-                    sh "docker login -u ${env.user} -p ${env.password}"
-                    sh "docker push chaitannyaa/my-webapp:v-${DOCKER_IMAGE_TAG}"
+         stage("Push DockerImage to DockrHub"){
+            steps{
+                withCredentials([usernamePassword(credentialsId:"dockerhub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker images"
+                sh "docker tag  webapp  anirudhadak2/new-app:webapp"
+		sh "docker push anirudhadak2/new-app:webapp"
+		}
+	    }
+	}
+        stage("Deploy Using DOcker Compose"){
+            steps{   
+		 sh "docker-compose down && docker-compose up -d"           
                 }
             }
         }
-        stage ("Deploy"){
-            steps {
-                sh 'docker-compose down && docker-compose up -d'
-            }
-        }
     }
-}
